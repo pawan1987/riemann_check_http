@@ -57,8 +57,6 @@ module RiemannCheckHttp
     
     def check_app_state(code, sc)
       state = 'okay'
-      puts sc.inspect
-      puts code
       sc.each do |c|
         if c =~ /^[0-9]{3}(\.\.[0-9]{3})?$/
           if $1
@@ -84,6 +82,5 @@ module RiemannCheckHttp
 end
 
  
-#con = RiemannCheckHttp::Riemann.new host:'10.21.1.40', port: 5555
-#res = con.check_http 'flatmates.housing.com/test', '501..598', '302..305', '301'
-#puts res.inspect
+#con = RiemannCheckHttp::Riemann.new host:'riemann-host-ip', port: 5555
+#res = con.check_http 'test.example.com/path', '501..598', '302..305', '301'

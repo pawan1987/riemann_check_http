@@ -28,6 +28,5 @@ module RiemannCheckHttp
 end
 
 
-#test
-#http = RiemannCheckHttp::NetHttp.new host: 'flatmates.housing.com',port: 80, read_timeout: 30, open_timeout: 5
+#http = RiemannCheckHttp::NetHttp.new host: 'host-name',port: 80, read_timeout: 30, open_timeout: 5
 #puts http.get('/').inspect
