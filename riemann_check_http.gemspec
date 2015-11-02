@@ -2,7 +2,7 @@
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'riemann_check_http/version'
-require 'riemann_check_http/net_http.rb'
+require 'riemann_check_http/net_https.rb'
 require 'riemann_check_http/riemann.rb'
 
 Gem::Specification.new do |spec|
