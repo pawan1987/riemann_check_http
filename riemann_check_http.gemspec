@@ -33,4 +33,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec"
   spec.add_dependency "riemann-client", "~>0.2.5"
+  spec.add_dependency "cacert", "~>0.2.0"
 end
