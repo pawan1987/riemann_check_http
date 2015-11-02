@@ -24,7 +24,7 @@ module RiemannCheckHttp
       tuple = {
             service: "#{app}.#{type}",
             state: state,
-            tags: "#{type}_url_monitoring",
+            tags: ["#{type}_url_monitoring","influxdb"],
             metric: metric,
             description: dsc,
             ttl: riemann_ttl
