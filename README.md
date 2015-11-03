@@ -22,7 +22,16 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+require 'riemann_check_http'
+$riemann_host = RIEMANN_SERVER
+$riemann_port = '5555'
+con = RiemannCheckHttp::Riemann.new host: $riemann_host, port: $riemann_port
+con.riemann_ttl = 500
+con.http_open_timeout = 5
+con.http_read_timeout = 30
+con.use_ssl = true
+con.use_pem = true
+con.check_http 'sample.url.com', '501..598', '302..305', '301'
 
 ## Development
 
