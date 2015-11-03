@@ -26,7 +26,8 @@ Or install it yourself as:
 require 'riemann_check_http'
 $riemann_host = RIEMANN_SERVER
 $riemann_port = '5555'
-con = RiemannCheckHttp::Riemann.new host: $riemann_host, port: $riemann_port
+$domain = 'sample'
+con = RiemannCheckHttp::Riemann.new host: $riemann_host, port: $riemann_port, domain: $domain
 con.riemann_ttl = 500
 con.http_open_timeout = 5
 con.http_read_timeout = 30
