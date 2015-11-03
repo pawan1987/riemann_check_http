@@ -12,11 +12,14 @@ module RiemannCheckHttp
     attr_accessor :use_ssl
     attr_accessor :use_pem #http.verify_mode = OpenSSL::SSL::VERIFY_NONE if use_pem = false
     attr_accessor :pem_file #if not defined takes Cacert.pem file coming through Cacert ruby gem
+    attr_accessor :domain
     
     def initialize(opts = {})
       raise "host: param is missing" if not opts[:host]
+      raise "domain: param is missing" if not opts[:domain]
       opts[:port] ||= 5555
       opts[:riemann_timeout] ||= 5
+      @domain = opts[:domain]
       @http_open_timeout = 10
       @http_read_timeout = 30
       @use_ssl = opts[:use_ssl] || false
@@ -43,7 +46,7 @@ module RiemannCheckHttp
     def check_http(url, *sc)
       code = '501'
       msg = 'Unknown'
-      if url =~ /^(http:\/\/|https:\/\/)?(.*?)(\.internal)?\.housing\.com/
+      if url =~ /^(http:\/\/|https:\/\/)?(.*?)(\.internal)?\.#{domain}\.com/
         app = $2 if $2
         type = $3 ? 'internal' : 'external'
       else
